@@ -9,6 +9,7 @@ function KombuchaList(props){
       <Kombucha
         names={kombucha.names}
         brand={kombucha.brand}
+        pints={kombucha.pints}
         id={kombucha.id}
         key={kombucha.id}/>
         )}
@@ -20,7 +21,7 @@ function KombuchaList(props){
 
 KombuchaList.propTypes = {
   kombuchaList: PropTypes.array,
-  
+
 };
 
 export default KombuchaList;

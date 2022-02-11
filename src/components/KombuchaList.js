@@ -5,15 +5,22 @@ import PropTypes from "prop-types";
 function KombuchaList(props){
   return (
     <React.Fragment>
-
+      {props.KombuchaList.map((kombucha) =>
+      <Kombucha
+        names={kombucha.names}
+        brand={kombucha.brand}
+        id={kombucha.id}
+        key={kombucha.id}/>
+        )}
     </React.Fragment>
-  )
+  );
 
 }
 
 
 KombuchaList.propTypes = {
-  kombuchaList: PropTypes
+  kombuchaList: PropTypes.array,
+  
 };
 
 export default KombuchaList;

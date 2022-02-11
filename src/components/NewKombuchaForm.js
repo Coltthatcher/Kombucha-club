@@ -34,7 +34,7 @@ function NewKombuchaForm(props) {
   )
 }
 
-NewKombuchaForm.PropTypes = {
+NewKombuchaForm.propTypes = {
   onNewKombuchaCreation: PropTypes.func
 };
 

@@ -1,4 +1,6 @@
 import React from "react";
+import NewKombuchaForm from "./NewKombuchaForm";
+import KombuchaList from "./KombuchaList";
 
 
 
@@ -26,6 +28,23 @@ class KombuchaControl extends React.Component {
       mainKombuchaList: newMainKombuchaList,
       formVisibleOnPage: false
     });
+  }
+
+
+  render(){
+    let currentlyVisibleState = null;
+    let buttonText = null;
+    if (this.state.formVisibleOnPage) {
+      currentlyVisibleState = <NewKombuchaForm onNewKombuchaCreation={this.handleAddingNewKombuchaToList} />;
+      buttonText = "Return to kombucha list";
+    }
+    return (
+      <React.Fragment>
+        {currentlyVisibleState}
+        <button onClick={this.handleClick}>{buttonText}</button>
+      </React.Fragment>
+    )
+    
   }
 }
 

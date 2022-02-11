@@ -1,7 +1,7 @@
 import React from "react";
 import NewKombuchaForm from "./NewKombuchaForm";
 import KombuchaList from "./KombuchaList";
-import KombuchaDetail from "./KombuchaDetail";
+
 
 
 
@@ -12,9 +12,7 @@ class KombuchaControl extends React.Component {
     this.state = {
       formVisibleOnPage: false,
       mainKombuchaList: [],
-      chosenKombucha: null // new code
     };
-    this.handleClick  = this.handleClick.bind(this)
   }
 
   handleClick = () => {
@@ -28,26 +26,29 @@ class KombuchaControl extends React.Component {
     this.setState({
       mainKombuchaList: newMainKombuchaList,
       formVisibleOnPage: false
-    });
+    })
   }
+    handleDecrementKombuchaQuantity = (quantityKombucha) => {
+      const updateKombuchaQuantity = [...this.state.mainKombuchaList];
+      updateKombuchaQuantity[quantityKombucha].quantity = updateKombuchaQuantity[quantityKombucha].quantity-1;
+      this.setState({
+        mainKombuchaList: updateKombuchaQuantity
+      })
+    }
+  
 
 
-  render(){
+  render() {
     let currentlyVisibleState = null;
     let buttonText = null;
     if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewKombuchaForm onNewKombuchaCreation={this.handleAddingNewKombuchaToList} />;
-      buttonText = "Return to kombucha list";
-    } else if (this.state.chosenKombucha != null) {
-      currentlyVisibleState =
-      <KombuchaDetail
-        kombucha={this.state.chosenKombucha}
-        onClickPour={this.handlePintsLeft}/>
-      buttonText="Retun to List";
-    } else { (this.state.formVisibleOnPage) 
-      currentlyVisibleState = <NewKombuchaForm onNewKombuchaCreation={this.handleAddingNewKombuchaToList} />;
-      buttonText = "return to List"
-        }
+      buttonText = "Return to Item List";
+    } else {
+      currentlyVisibleState = <KombuchaList onDecrementKombuchaQuantity={this.handleDecrementKombuchaQuantity}
+      kombuchaList={this.state.mainkombuchaList} />;
+      buttonText = "Add Item";
+    }
     return (
       <React.Fragment>
         {currentlyVisibleState}

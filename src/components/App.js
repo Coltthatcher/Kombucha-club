@@ -11,6 +11,13 @@ class App extends React.Component {
     };
   }
 
+  HandlePintRemoval = (newKombucha) => {
+    const placeholder = this.state.kombuchaKeg.concat(newKombucha);
+    this.setState({
+      kombuchaKeg: placeholder
+    });
+  }
+
 render(){
   return (
     <React.Fragment>

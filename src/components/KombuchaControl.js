@@ -7,11 +7,11 @@ import KombuchaList from "./KombuchaList";
 
 class KombuchaControl extends React.Component {
 
-  constructor(props) {
+  constructor(props){
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      mainKombuchaList: [],
+      mainKombuchaList: []
     };
   }
 
@@ -26,7 +26,7 @@ class KombuchaControl extends React.Component {
     this.setState({
       mainKombuchaList: newMainKombuchaList,
       formVisibleOnPage: false
-    })
+    });
   }
     handleDecrementKombuchaQuantity = (quantityKombucha) => {
       const updateKombuchaQuantity = [...this.state.mainKombuchaList];

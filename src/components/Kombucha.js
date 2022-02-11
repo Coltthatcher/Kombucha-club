@@ -17,7 +17,7 @@ function Kombucha(props){
           <p>{props.content.brand}</p>
           <p>{props.content.price}</p>
           <p>{props.content.alcoholContent}</p>
-          <p>{props.content.quantity}</p>
+          <p>{parseInt(props.content.quantity)}</p>
           {buy}
         </div>
         </React.Fragment>

@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 function KombuchaList(props){
   return (
     <React.Fragment>
-      {props.kombuchaList.map((kombucha, index) =>
+      {props.kombuchaList?.map((kombucha, index) =>
       <Kombucha
         content={kombucha}
         position = {index}

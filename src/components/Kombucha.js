@@ -2,10 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 
 
+
 function Kombucha(props){
   return (
     <React.Fragment>
-    <div on click = {() => props.whenKombuchaClicked(props.id)}>
+    <div onClick = {() => props.whenKombuchaClicked(props.id)}>
       <h3>{props.name} - {props.brand}</h3>
     </div>
 
@@ -13,7 +14,7 @@ function Kombucha(props){
   )
   
 }
-Kombucha.protoTypes = {
+Kombucha.propTypes = {
   name: PropTypes.string,
   brand: PropTypes.string,
   price: PropTypes.number,

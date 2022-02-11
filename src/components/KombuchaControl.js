@@ -29,18 +29,6 @@ class KombuchaControl extends React.Component {
       mainKombuchaList: newMainKombuchaList,
       formVisibleOnPage: false
     });
-
-    handlePintsLeft = () => {
-      const chosenKombucha = this.state.chosenKombucha;
-      const sellKombucha = Object.assign({}, chosenKombucha, {pints: parseInt(chosenKombucha.pints) -1 });
-      const newNewKombuchaList = this.state.mainKombuchaList
-        .filter(kombucha => kombucha.id !== this.state.chosenKombucha.id)
-        .concat(sellKombucha);
-      this.setState({
-        mainKombuchaList: newNewKombuchaList,
-        chosenKombucha: sellKombucha
-      });
-    }
   }
 
 

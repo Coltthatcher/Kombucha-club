@@ -26,7 +26,7 @@ function NewKombuchaForm(props) {
           placeholder='Price' />
         <input 
           type='number'
-          name='alcohol content'
+          name='alcoholContent'
           placeholder="Alcohol Content" />
         <button type='submit'>Add new Kombucha</button>
       </form>

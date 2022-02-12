@@ -8,9 +8,9 @@ function KombuchaList(props){
       {props.kombuchaList?.map((kombucha, index) =>
       <Kombucha
         content={kombucha}
-        position = {index}
+        key = {index}
         method = {props.onDecrementKombuchaQuantity}
-        key={kombucha.id}/>
+        id={kombucha.id}/>
         )}
     </React.Fragment>
   );

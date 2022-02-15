@@ -2,7 +2,7 @@
 
 <br>
 <p align="center">
-  <u><big><b>Kombucha Kulub</b></big></u>
+  <u><big><b>Kombucha Klub</b></big></u>
 </p>
 
    
@@ -45,7 +45,7 @@ A user can select from a number of kombuchas and add new ones to a list, one can
   4) Clone the repository to your desktop: `$ git clone https://github.com/Coltthatcher/KombuchaKlub`
   5) Run the command `cd KombuchaKlub` to get into the project directory.
 
-  
+
 
  
 

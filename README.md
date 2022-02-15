@@ -45,7 +45,10 @@ A user can select from a number of kombuchas and add new ones to a list, one can
   4) Clone the repository to your desktop: `$ git clone https://github.com/Coltthatcher/KombuchaKlub`
   5) Run the command `cd KombuchaKlub` to get into the project directory.
 
+### running the site
 
+  1) After cloneing project run `npm install`
+  2) adding new kombucha to the list will show the kombuchas details where one can run see the functionality of the site
 
  
 

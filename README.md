@@ -1,51 +1,133 @@
-# __
-
 #### Created By _**Colton Thatcher**_
 
-#### _An application to_
+<br>
+<p align="center">
+  <u><big><b>LocalLookUp API</b></big></u>
+</p>
 
-## Technologies Used
+   
+</p>
 
-* _HTML_
-* _CSS_
-* _Bootstrap_
-* _Javascript_
-* _jQuery_
-* _webpack_
-* _npm_
-* _Jest_
+<p align="center">
+  <small>Initiated Jan 20th, 2022.</small>
+</p>
 
-## Description
 
-_This project was created for Epicodus bootcamp to show proficiency in. The application is for . The user can ._
 
-## Setup/Installation Requirements
+##  About the Project
 
-* _Clone the GitHub [repository](https://github.com/christophermneal/) or download and open the Zip on your local machine.
-* _From the project directory, run `npm install` in the terminal to load necessary plugins and packages._
-* _Run `npm run start` to start the application._
-* _Alternatively, you can run `npm run build` and open dist/index.html in your preferred browser._
+### Description
+An Api in which a user can see a Restaurant or Shop posted in a local town look up.
 
-* _To get an API key for Open Weather, first sign up for an account [here](https://home.openweathermap.org/users/sign_up). Once you are signed in, click on the API keys tab in your account. Copy the Default key that the API provides._
-* _In the terminal from the project directory run `touch .env` to create an environment file._
-* _Open .env in your prefered editor and insert `API_KEY=` followed by the API key you copied._
+### Known Bugs
 
-* _For more options, please reference OpenWeather's [guide](https://openweathermap.org/guide)._
+* The Api uses seeded endpoints from this repository, so it is not pulling from a Outsourced Api.
+* There is a limited number of GET search requests, currently you can only search for JSON data with the string Restaurant, string Shop, and Int TownId.
 
-* _Or you can click [here](https://christophermneal.github.io/) to visit the page on gh-pages._
+### Built With
+* Visual Studio Code
+* C#
+* ASP.NET Core MVC
+* MySQL 
+* Entity Framework 
+* Swagger
+* Postman
 
-## Known Bugs
 
-_None at this time_
+------------------------------
 
-## Future Updates
+## How To?
 
-* __
+
+
+### Install .NET Core
+* Using a mac
+  * [Click here](https://dotnet.microsoft.com/download/thank-you/dotnet-sdk-2.2.106-macos-x64-installer) to download the .NET Core. (note 64bit version)
+* Using Windows
+  * [Click here](https://dotnet.microsoft.com/download/thank-you/dotnet-sdk-2.2.203-windows-x64-installer) to download .NET Core. (note 64bit version) 
+
+### Install dotnet
+ Put the following text in command line `dotnet tool install -g dotnet-script`
+
+#### Install MySQL
+ [Download and install which ever version is recent of MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
+
+#### Install Postman
+Needed to test Api calls [Download and install Postman](https://www.postman.com/downloads/).
+
+
+### Setup
+
+  #### Cloning
+
+  1) Navigate to the [LocalLookUp.Solution](https://github.com/Coltthatcher/LocalLookUp.Solution).
+  2) Click Clone in the upper right corner.
+  3) Open up your system Terminal or GitBash.
+  4) Clone the repository to your desktop: `$ git clone https://github.com/Coltthatcher/LocalLookUp.Solution.git`
+  5) Run the command `cd LocalLookUp.Solution` to get into the project directory.
+
+  #### AppSettings
+
+  1) Create a new file in the LocalLookUp.Solution/LocalLookUp directory named `appsettings.json`
+  2) Add in the following code to the appsettings.json file:
+
+  ```
+{
+    "Logging": {
+        "LogLevel": {
+        "Default": "Warning"
+        }
+    },
+    "AllowedHosts": "*",
+    "ConnectionStrings": {
+        "DefaultConnection": "Server=localhost;Port=3306;database=locallookup_api;uid=root;pwd=YourPassword;"
+    }
+}
+  ```
+  3) Note YourPassword should be your personal sql password.
+
+  #### Database
+  1) Navigate to LocalLookUp.Solution/LocalLookUp directory `LocalLookUp.Solution/LocalLookUp`).
+  2) Run the command `dotnet ef database update`.
+
+  #### Launch the API
+  1) Navigate to `LocalLookUp.Solution/LocalLookUp`
+  2) Run the command `dotnet run` To gain access to the browser and API
+
+------------------------------
+
+
+### Using Swagger
+`dotnet run` select `http://localhost:5000/swagger`
+
+
+
+### Endpoints
+`https://localhost:5000`
+
+#### HTTP Request Structure
+```
+GET /api/towns
+POST /api/towns
+GET /api/towns
+PUT /api/towns
+DELETE /api/towns
+```
+
+### Searching for an API
+1) When the site is up and running with `dotnet run` have the postman application open on your machine.
+2) if you wish to search for a specific restaurant enter `http://localhost:5000/api/towns?restaurant=bistro` this will return the JSON Data for that town the restaurant belongs to. Its will work vice versa with shop using the same logic.
+
+
+### Acknowledgments
+
+#### [Epicodus](https://www.epicodus.com/)
+
 
 ## License
 
 _[MIT](https://opensource.org/licenses/MIT)_
-Copyright (c) _2021_ _Colton Thatcher_
+Copyright (c) _2021_ _Colt Thatcher_
 
 ## Support and Contact Details
 * _[colt.thatcher303@gmail.com](colt.thatcher303@gmail.com)_

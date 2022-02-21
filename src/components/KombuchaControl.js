@@ -11,9 +11,9 @@ class KombuchaControl extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      mainKombuchaList: []
+      mainKombuchaList: [],
+      selectedKombucha: null
     };
-    console.log(this.state.mainKombuchaList)
   }
 
 
@@ -33,14 +33,18 @@ class KombuchaControl extends React.Component {
     });
   }
   
-  handleDecrementKombuchaQuantity = (quantityKombucha) => {
-    const updateKombuchaQuantity = [...this.state.mainKombuchaList];
-    updateKombuchaQuantity[quantityKombucha].quantity = updateKombuchaQuantity[quantityKombucha].quantity-1;
-    this.setState({
-      mainKombuchaList: updateKombuchaQuantity
-    })
+  handleChangingSelectedKombucha = (id) => {
+    const selectedKombucha = this.state.mainKombuchaList.filter(kombucha => kombucha.id === id)[0];
+    this.setState({selectedKombucha: selectedKombucha});
   }
 
+
+  handleSellPint = (id) => {
+    let selectedKombucha = this.state.mainKombuchaList.find(kombucha => kombucha.id === id);
+    selectedKombucha.pint--;
+    const newMainKombuchaList = this.state.mainKombuchaList.map((kombucha) => {return kombucha.id === id ? selectedKombucha : kombucha});
+    this.setState({mainKombuchaList: newMainKombuchaList});
+  }
 
   render() {
     let currentlyVisibleState = null;
@@ -49,8 +53,10 @@ class KombuchaControl extends React.Component {
       currentlyVisibleState = <NewKombuchaForm onNewKombuchaCreation={this.handleAddingNewKombuchaToList} />;
       buttonText = "Return to Item List";
     } else {
-      currentlyVisibleState = <KombuchaList onDecrementKombuchaQuantity={this.handleDecrementKombuchaQuantity}
-      kombuchaList={this.state.mainKombuchaList} />;
+      currentlyVisibleState = <KombuchaList 
+                                handleSellPint={this.handleSellPint}
+                                mainKombuchaList={this.state.mainKombuchaList} 
+                              />;
       buttonText = "Add Item";
     }
     return (

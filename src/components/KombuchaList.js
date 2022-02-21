@@ -3,15 +3,20 @@ import Kombucha from "./Kombucha";
 import PropTypes from "prop-types";
 
 function KombuchaList(props){
+  const { handleSellPint, mainKombuchaList} = props;
+
+
   return (
     <React.Fragment>
-      {props.kombuchaList?.map((kombucha, index) =>
-      <Kombucha
-        content={kombucha}
-        key = {index}
-        method = {props.onDecrementKombuchaQuantity}
-        id={kombucha.id}/>
-        )}
+      {mainKombuchaList.map((kombucha, index) =>
+        <Kombucha
+          // whenKombuchaClicked = { props.onKegSelection }
+          pint={kombucha.pint}
+          content={kombucha}
+          key = {index}
+          handleSellPint={handleSellPint}
+          id={kombucha.id}/>
+      )}
     </React.Fragment>
   );
 
@@ -19,7 +24,8 @@ function KombuchaList(props){
 
 
 KombuchaList.propTypes = {
-  kombuchaList: PropTypes.array
+  kombuchaList: PropTypes.array,
+  handleSellPint: PropTypes.func
 
 };
 

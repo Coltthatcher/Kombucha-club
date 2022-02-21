@@ -6,7 +6,12 @@ function NewKombuchaForm(props) {
 
   function handleNewKombuchaFormSubmission(event) {
     event.preventDefault();
-    props.onNewKombuchaCreation({name: event.target.name.value, brand: event.target.brand.value, price: event.target.price.value, alcoholContent: event.target.alcoholContent.value, quantity: parseInt(event.target.quantity.value), id: v4()});
+    props.onNewKombuchaCreation({
+      name: event.target.name.value, 
+      brand: event.target.brand.value, 
+      price: event.target.price.value, 
+      alcoholContent: event.target.alcoholContent.value, 
+      pint: event.target.pint.value, id: v4()});
   }
 
   return (
@@ -30,8 +35,10 @@ function NewKombuchaForm(props) {
           placeholder="Alcohol Content" />
         <input
           type='number'
-          name='quantity'
-          placeholder='Quantity' />
+          name='pint'
+          placeholder='pints left'
+          min="0"
+          defaultValue="124"/>
         <button type='submit'>Add new Kombucha</button>
       </form>
     </React.Fragment>

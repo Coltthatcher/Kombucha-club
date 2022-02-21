@@ -10,7 +10,6 @@ function KombuchaList(props){
     <React.Fragment>
       {mainKombuchaList.map((kombucha, index) =>
         <Kombucha
-          // whenKombuchaClicked = { props.onKegSelection }
           pint={kombucha.pint}
           content={kombucha}
           key = {index}
